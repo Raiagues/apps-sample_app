@@ -57,6 +57,9 @@ CFE_Status_t SENSO_APP_SendHkCmd(const SENSO_APP_SendHkCmd_t *Msg)
     /*
     ** Send housekeeping telemetry packet...
     */
+    /* [SENSOR_CALL] */
+    SENSO_APP_UpdateSensors(&SENSO_APP_Data.HkTlm.Payload);
+    /* [/SENSOR_CALL] */
     CFE_SB_TimeStampMsg(CFE_MSG_PTR(SENSO_APP_Data.HkTlm.TelemetryHeader));
     CFE_SB_TransmitMsg(CFE_MSG_PTR(SENSO_APP_Data.HkTlm.TelemetryHeader), true);
     

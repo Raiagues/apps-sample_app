@@ -32,6 +32,10 @@
 #include "senso_app_tbl.h"
 #include "senso_app_version.h"
 
+#include <fcntl.h>
+#include <unistd.h>
+#include <string.h>
+#include <sys/select.h>
 
 /*
 ** global data

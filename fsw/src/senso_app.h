@@ -39,6 +39,36 @@
 #include "senso_app_msg.h"
 
 /************************************************************************
+** Sensor Metadata Types
+*************************************************************************/
+
+#define SENSO_MAX_FAIL_COUNT 3  /**< Consecutive failures before EVS ERROR */
+#define SENSO_DISABLE_COUNT  6  /**< Consecutive failures before auto-disable */
+
+typedef enum
+{
+    SENSOR_TEMP = 0,
+    SENSOR_HUM,
+    SENSOR_PRES,
+    SENSOR_ALT,
+    SENSOR_ACC,
+    SENSOR_GYR,
+    SENSOR_GPS,
+    SENSO_NUM_SENSORS
+} SENSO_Sensor_e;
+
+typedef struct
+{
+    uint8       enabled;               /**< 1 = active, 0 = disabled */
+    uint8       fail_count;            /**< Consecutive read failures */
+    const char *name;                  /**< Human-readable name       */
+    const char *tag;                   /**< Serial wire tag (e.g. "TEMP") */
+    const char *unit;                  /**< Unit string for logging   */
+    uint8       num_values;            /**< 1, 3, or 12 values        */
+    const char *value_names[3];        /**< Field names (max 3)       */
+} SENSO_Sensor_Metadata_t;
+
+/************************************************************************
 ** Type Definitions
 *************************************************************************/
 

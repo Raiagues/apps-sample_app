@@ -52,3 +52,8 @@ CFE_Status_t SENSO_APP_TblValidationFunc(void *TblData)
 
     return UT_GenStub_GetReturnValue(SENSO_APP_TblValidationFunc, CFE_Status_t);
 }
+
+void SENSO_APP_UpdateSensors(SENSO_APP_HkTlm_Payload_t *Payload) {}
+void SENSO_APP_InitSerial(const char *port) {}
+void SENSO_APP_ReadSerial(SENSO_APP_HkTlm_Payload_t *Payload) {}
+

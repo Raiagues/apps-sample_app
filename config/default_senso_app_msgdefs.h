@@ -34,15 +34,22 @@ typedef struct SENSO_APP_DisplayParam_Payload
     char   ValStr[SENSO_APP_MISSION_STRING_VAL_LEN]; /**< An example string */
 } SENSO_APP_DisplayParam_Payload_t;
 
-/*************************************************************************/
-/*
-** Type definition (Sample App housekeeping)
-*/
+/* [SENSOR:bmp280] */
+typedef struct {
+    float Pressure; /* unit: hPa — Atmospheric pressure */
+    float EstimatedAltitude; /* unit: m — Altitude from pressure */
+} SENSO_APP_BMP280_t;
+/* [/SENSOR:bmp280] */
 
 typedef struct SENSO_APP_HkTlm_Payload
 {
     uint8 CommandCounter;
     uint8 CommandErrorCounter;
+    uint8 spare[2];
+
+    /* [SENSOR_REF:bmp280] */
+    SENSO_APP_BMP280_t BMP280;
+    /* [/SENSOR_REF:bmp280] */
 } SENSO_APP_HkTlm_Payload_t;
 
 #endif

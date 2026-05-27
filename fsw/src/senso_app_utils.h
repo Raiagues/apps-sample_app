@@ -16,20 +16,15 @@
  * limitations under the License.
  ************************************************************************/
 
-/**
- * @file
- *   This file contains the prototypes for the Sample App utility functions
- */
-
 #ifndef SENSO_APP_UTILS_H
 #define SENSO_APP_UTILS_H
 
-/*
-** Required header files.
-*/
 #include "senso_app.h"
 
 CFE_Status_t SENSO_APP_TblValidationFunc(void *TblData);
 void         SENSO_APP_GetCrc(const char *TableName);
-void SENSO_APP_InitSerial(const char *port); 
+
+
+/* [SENSOR_PROTO] */
+void SENSO_APP_UpdateSensors(SENSO_APP_HkTlm_Payload_t *Payload);
 #endif /* SENSO_APP_UTILS_H */
